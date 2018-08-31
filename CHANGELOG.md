@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.2]
+- Rename language module from `uninstaller`to `removeplugindataconfirm`
+
 ## [0.1.1]
 - Fix
 
