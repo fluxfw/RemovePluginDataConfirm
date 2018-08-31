@@ -146,7 +146,7 @@ abstract class AbstractRemovePluginDataConfirm {
 		$confirmation->addButton($this->txt("remove_data"), self::CMD_SET_REMOVE_DATA);
 		$confirmation->addButton($this->txt("keep_data"), self::CMD_SET_KEEP_DATA);
 		$confirmation->addButton($this->txt("deactivate"), self::CMD_DEACTIVATE);
-		$confirmation->setCancel($this->txt("cancel", []), self::CMD_CANCEL);
+		$confirmation->setCancel($this->txt("cancel"), self::CMD_CANCEL);
 
 		self::output($confirmation);
 	}
@@ -186,12 +186,11 @@ abstract class AbstractRemovePluginDataConfirm {
 
 	/**
 	 * @param string $key
-	 * @param array  $placeholders
 	 *
 	 * @return string
 	 */
-	protected final function txt($key, array $placeholders = [ self::pl()->getPluginName() ]) {
-		return self::translate($key, "uninstaller", $placeholders);
+	protected final function txt($key) {
+		return self::translate($key, "uninstaller", [ self::pl()->getPluginName() ]);
 	}
 
 
