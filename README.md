@@ -127,25 +127,25 @@ public static function removeUninstallRemovesData() {
 Then you need to declare some language variables like:
 English:
 ```
-uninstall_cancel#:#Cancel
-uninstall_confirm_remove_data#:#Do you want to remove the %s data as well? At most, you just want to disable the %s plugin?
-uninstall_deactivate#:#Just deactivate %s plugin
-uninstall_data#:#%s data
-uninstall_keep_data#:#Keep %s data
-uninstall_msg_kept_data#:#The %s data was kept!
-uninstall_msg_removed_data#:#The %s data was also removed!
-uninstall_remove_data#:#Remove %s data
+removeplugindataconfirm_cancel#:#Cancel
+removeplugindataconfirm_confirm_remove_data#:#Do you want to remove the %s data as well? At most, you just want to disable the %s plugin?
+removeplugindataconfirm_deactivate#:#Just deactivate %s plugin
+removeplugindataconfirm_data#:#%s data
+removeplugindataconfirm_keep_data#:#Keep %s data
+removeplugindataconfirm_msg_kept_data#:#The %s data was kept!
+removeplugindataconfirm_msg_removed_data#:#The %s data was also removed!
+removeplugindataconfirm_remove_data#:#Remove %s data
 ```
 German:
 ```
-uninstall_cancel#:#Abbrechen
-uninstall_confirm_remove_data#:#Möchten Sie die %s-Daten auch entfernen? Allenfalls möchten Sie das %s-Plugin nur deaktivieren?
-uninstall_deactivate#:#%s-Plugin nur deaktivieren
-uninstall_data#:#%s-Daten
-uninstall_keep_data#:#%s-Daten behalten
-uninstall_msg_kept_data#:#Die %s-Daten wurden behalten!
-uninstall_msg_removed_data#:#Die %s-Daten wurden auch entfernt!
-uninstall_remove_data#:#Entferne %s-Daten
+removeplugindataconfirm_cancel#:#Abbrechen
+removeplugindataconfirm_confirm_remove_data#:#Möchten Sie die %s-Daten auch entfernen? Allenfalls möchten Sie das %s-Plugin nur deaktivieren?
+removeplugindataconfirm_deactivate#:#%s-Plugin nur deaktivieren
+removeplugindataconfirm_data#:#%s-Daten
+removeplugindataconfirm_keep_data#:#%s-Daten behalten
+removeplugindataconfirm_msg_kept_data#:#Die %s-Daten wurden behalten!
+removeplugindataconfirm_msg_removed_data#:#Die %s-Daten wurden auch entfernt!
+removeplugindataconfirm_remove_data#:#Entferne %s-Daten
 ```
 If you want you can modify these. The `%s` placeholder is the name of your plugin.
 

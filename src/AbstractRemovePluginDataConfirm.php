@@ -190,7 +190,7 @@ abstract class AbstractRemovePluginDataConfirm {
 	 * @return string
 	 */
 	protected final function txt($key) {
-		return self::translate($key, "uninstaller", [ self::pl()->getPluginName() ]);
+		return self::translate($key, "removeplugindataconfirm", [ self::pl()->getPluginName() ]);
 	}
 
 
