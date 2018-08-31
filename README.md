@@ -151,8 +151,8 @@ If you want you can modify these. The `%1$s` placeholder is the name of your plu
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests on https://git.studer-raimann.ch/ILIAS/Plugins/RemovePluginDataConfirm/tree/develop
-* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/LJIRACURL
-* Bug reports under https://jira.studer-raimann.ch/projects/LJIRACURL
+* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/LRPDC
+* Bug reports under https://jira.studer-raimann.ch/projects/LRPDC
 * For external developers please send an email to support-custom1@studer-raimann.ch
 
 ### Development

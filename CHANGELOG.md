@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.8]
+- Fix Jira key
+
 ## [0.1.7]
 - Fix
 
