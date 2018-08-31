@@ -46,7 +46,7 @@ use RepositoryObjectPluginUninstallTrait;
 //...
 ```
 
-Remove also remove the methods `beforeUninstall`, `afterUninstall`, `beforeUninstallCustom` and `uninstallCustom` in your plugin class.
+Remove also the methods `beforeUninstall`, `afterUninstall`, `beforeUninstallCustom` and `uninstallCustom` in your plugin class.
 
 Then create a class called `XRemoveDataConfirm` in `classes/uninstall/class.XRemoveDataConfirm.php`:
 ```php
