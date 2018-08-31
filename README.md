@@ -119,7 +119,7 @@ public static function setUninstallRemovesData($uninstall_removes_data) {
  *
  */
 public static function removeUninstallRemovesData() {
-	self::deleteName(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA);
+	self::removeName(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA);
 }
 //...
 ```

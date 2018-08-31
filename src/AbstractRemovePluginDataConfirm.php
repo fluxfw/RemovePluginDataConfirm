@@ -47,28 +47,28 @@ abstract class AbstractRemovePluginDataConfirm {
 	public static final function saveParameterByClass($plugin = true) {
 		$ref_id = filter_input(INPUT_GET, "ref_id");
 		self::dic()->ctrl()->setParameterByClass(ilObjComponentSettingsGUI::class, "ref_id", $ref_id);
-		self::dic()->ctrl()->setParameterByClass(self::class, "ref_id", $ref_id);
+		self::dic()->ctrl()->setParameterByClass(static::class, "ref_id", $ref_id);
 
 		if ($plugin) {
 			$ctype = filter_input(INPUT_GET, "ctype");
 			self::dic()->ctrl()->setParameterByClass(ilObjComponentSettingsGUI::class, "ctype", $ctype);
-			self::dic()->ctrl()->setParameterByClass(self::class, "ctype", $ctype);
+			self::dic()->ctrl()->setParameterByClass(static::class, "ctype", $ctype);
 
 			$cname = filter_input(INPUT_GET, "cname");
 			self::dic()->ctrl()->setParameterByClass(ilObjComponentSettingsGUI::class, "cname", $cname);
-			self::dic()->ctrl()->setParameterByClass(self::class, "cname", $cname);
+			self::dic()->ctrl()->setParameterByClass(static::class, "cname", $cname);
 
 			$slot_id = filter_input(INPUT_GET, "slot_id");
 			self::dic()->ctrl()->setParameterByClass(ilObjComponentSettingsGUI::class, "slot_id", $slot_id);
-			self::dic()->ctrl()->setParameterByClass(self::class, "slot_id", $slot_id);
+			self::dic()->ctrl()->setParameterByClass(static::class, "slot_id", $slot_id);
 
 			$plugin_id = filter_input(INPUT_GET, "plugin_id");
 			self::dic()->ctrl()->setParameterByClass(ilObjComponentSettingsGUI::class, "plugin_id", $plugin_id);
-			self::dic()->ctrl()->setParameterByClass(self::class, "plugin_id", $plugin_id);
+			self::dic()->ctrl()->setParameterByClass(static::class, "plugin_id", $plugin_id);
 
 			$pname = filter_input(INPUT_GET, "pname");
 			self::dic()->ctrl()->setParameterByClass(ilObjComponentSettingsGUI::class, "pname", $pname);
-			self::dic()->ctrl()->setParameterByClass(self::class, "pname", $pname);
+			self::dic()->ctrl()->setParameterByClass(static::class, "pname", $pname);
 		}
 	}
 

@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.5]
+- Fix wrong class in `AbstractRemovePluginDataConfirm::saveParameterByClass`
+
 ## [0.1.4]
 - Fix `vsprintf`
 
