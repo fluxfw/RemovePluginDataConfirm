@@ -1,4 +1,4 @@
-Connect to Jira via Curl
+Demand if plugin data should be removed on uninstall
 
 ### Usage
 

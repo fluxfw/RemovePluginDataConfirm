@@ -1,7 +1,7 @@
 {
   "name": "srag/removeplugindataconfirm",
-  "description": "",
-  "version": "0.1.8",
+  "description": "Demand if plugin data should be deleted when uninstalling",
+  "version": "0.1.9",
   "type": "library",
   "keywords": [
     "ILIAS",
