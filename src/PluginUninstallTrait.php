@@ -17,7 +17,7 @@ trait PluginUninstallTrait {
 	 * @throws RemovePluginDataConfirmException
 	 */
 	protected final function beforeUninstall() {
-		return $this->confirmUninstall();
+		return $this->pluginUninstall();
 	}
 
 
