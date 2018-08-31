@@ -128,26 +128,26 @@ Then you need to declare some language variables like:
 English:
 ```
 removeplugindataconfirm_cancel#:#Cancel
-removeplugindataconfirm_confirm_remove_data#:#Do you want to remove the %s data as well? At most, you just want to disable the %s plugin?
-removeplugindataconfirm_deactivate#:#Just deactivate %s plugin
-removeplugindataconfirm_data#:#%s data
-removeplugindataconfirm_keep_data#:#Keep %s data
-removeplugindataconfirm_msg_kept_data#:#The %s data was kept!
-removeplugindataconfirm_msg_removed_data#:#The %s data was also removed!
-removeplugindataconfirm_remove_data#:#Remove %s data
+removeplugindataconfirm_confirm_remove_data#:#Do you want to remove the %1$s data as well? At most, you just want to disable the %1$s plugin?
+removeplugindataconfirm_deactivate#:#Just deactivate %1$s plugin
+removeplugindataconfirm_data#:#%1$s data
+removeplugindataconfirm_keep_data#:#Keep %1$s data
+removeplugindataconfirm_msg_kept_data#:#The %1$s data was kept!
+removeplugindataconfirm_msg_removed_data#:#The %1$s data was also removed!
+removeplugindataconfirm_remove_data#:#Remove %1$s data
 ```
 German:
 ```
 removeplugindataconfirm_cancel#:#Abbrechen
-removeplugindataconfirm_confirm_remove_data#:#Möchten Sie die %s-Daten auch entfernen? Allenfalls möchten Sie das %s-Plugin nur deaktivieren?
-removeplugindataconfirm_deactivate#:#%s-Plugin nur deaktivieren
-removeplugindataconfirm_data#:#%s-Daten
-removeplugindataconfirm_keep_data#:#%s-Daten behalten
-removeplugindataconfirm_msg_kept_data#:#Die %s-Daten wurden behalten!
-removeplugindataconfirm_msg_removed_data#:#Die %s-Daten wurden auch entfernt!
-removeplugindataconfirm_remove_data#:#Entferne %s-Daten
+removeplugindataconfirm_confirm_remove_data#:#Möchten Sie die %1$s-Daten auch entfernen? Allenfalls möchten Sie das %1$s-Plugin nur deaktivieren?
+removeplugindataconfirm_deactivate#:#%1$s-Plugin nur deaktivieren
+removeplugindataconfirm_data#:#%1$s-Daten
+removeplugindataconfirm_keep_data#:#%1$s-Daten behalten
+removeplugindataconfirm_msg_kept_data#:#Die %1$s-Daten wurden behalten!
+removeplugindataconfirm_msg_removed_data#:#Die %1$s-Daten wurden auch entfernt!
+removeplugindataconfirm_remove_data#:#Entferne %1$s-Daten
 ```
-If you want you can modify these. The `%s` placeholder is the name of your plugin.
+If you want you can modify these. The `%1$s` placeholder is the name of your plugin.
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests on https://git.studer-raimann.ch/ILIAS/Plugins/RemovePluginDataConfirm/tree/develop
