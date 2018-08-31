@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.6]
+- Fix RepositoryObject
+
 ## [0.1.5]
 - Fix wrong class in `AbstractRemovePluginDataConfirm::saveParameterByClass`
 

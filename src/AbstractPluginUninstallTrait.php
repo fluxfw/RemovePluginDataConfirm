@@ -29,10 +29,12 @@ trait AbstractPluginUninstallTrait {
 
 
 	/**
+	 * @param bool $remove_data
+	 *
 	 * @return bool
 	 * @throws RemovePluginDataConfirmException
 	 */
-	protected final function confirmUninstall() {
+	protected final function pluginUninstall($remove_data = true) {
 		$remove_plugin_data_confirm_class = self::getRemovePluginDataConfirmClass();
 		$remove_plugin_data_confirm_class_name = static::REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME;
 
@@ -52,7 +54,9 @@ trait AbstractPluginUninstallTrait {
 		$uninstall_removes_data = boolval($uninstall_removes_data);
 
 		if ($uninstall_removes_data) {
-			$this->deleteData();
+			if ($remove_data) {
+				$this->deleteData();
+			}
 		} else {
 			// Ask again if reinstalled
 			$remove_plugin_data_confirm_class->removeUninstallRemovesData();
