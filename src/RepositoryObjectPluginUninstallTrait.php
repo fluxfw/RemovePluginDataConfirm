@@ -19,7 +19,7 @@ trait RepositoryObjectPluginUninstallTrait {
 	 * @access namespace
 	 */
 	protected final function beforeUninstallCustom() {
-		return $this->pluginUninstall(false);
+		return $this->pluginUninstall(false); // Remove plugin data after ilRepUtil::deleteObjectType($this->getId() because may data needs for reading ilObject's!
 	}
 
 
