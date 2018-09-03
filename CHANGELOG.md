@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.14]
+- Update PHPDoc and visibility
+
 ## [0.1.13]
 - DIC PluginInterface
 
