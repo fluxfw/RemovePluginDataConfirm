@@ -26,11 +26,13 @@ abstract class AbstractRemovePluginDataConfirm {
 	/**
 	 * @var static|null
 	 */
-	protected static $instance = NULL;
+	private static $instance = NULL;
 
 
 	/**
 	 * @return static
+	 *
+	 * @access namespace
 	 */
 	public static final function getInstance() {
 		if (self::$instance === NULL) {
@@ -43,6 +45,8 @@ abstract class AbstractRemovePluginDataConfirm {
 
 	/**
 	 * @param bool $plugin
+	 *
+	 * @access namespace
 	 */
 	public static final function saveParameterByClass($plugin = true) {
 		$ref_id = filter_input(INPUT_GET, "ref_id");
@@ -74,7 +78,7 @@ abstract class AbstractRemovePluginDataConfirm {
 
 
 	/**
-	 *
+	 * @access namespace
 	 */
 	public final function __construct() {
 
@@ -82,7 +86,7 @@ abstract class AbstractRemovePluginDataConfirm {
 
 
 	/**
-	 *
+	 * @access namespace
 	 */
 	public final function executeCommand() {
 		$next_class = self::dic()->ctrl()->getNextClass($this);
@@ -111,7 +115,7 @@ abstract class AbstractRemovePluginDataConfirm {
 	/**
 	 * @param string $cmd
 	 */
-	protected final function redirectToPlugins($cmd) {
+	private final function redirectToPlugins($cmd) {
 		self::saveParameterByClass($cmd !== "listPlugins");
 
 		self::dic()->ctrl()->redirectByClass([
@@ -124,7 +128,7 @@ abstract class AbstractRemovePluginDataConfirm {
 	/**
 	 *
 	 */
-	protected final function cancel() {
+	private final function cancel() {
 		$this->redirectToPlugins("listPlugins");
 	}
 
@@ -132,7 +136,7 @@ abstract class AbstractRemovePluginDataConfirm {
 	/**
 	 *
 	 */
-	protected final function confirmRemoveData() {
+	private final function confirmRemoveData() {
 		self::saveParameterByClass();
 
 		$confirmation = new ilConfirmationGUI();
@@ -155,7 +159,7 @@ abstract class AbstractRemovePluginDataConfirm {
 	/**
 	 *
 	 */
-	protected final function deactivate() {
+	private final function deactivate() {
 		$this->redirectToPlugins("deactivatePlugin");
 	}
 
@@ -163,7 +167,7 @@ abstract class AbstractRemovePluginDataConfirm {
 	/**
 	 *
 	 */
-	protected final function setKeepData() {
+	private final function setKeepData() {
 		$this->setUninstallRemovesData(false);
 
 		ilUtil::sendInfo($this->txt("msg_kept_data"), true);
@@ -175,7 +179,7 @@ abstract class AbstractRemovePluginDataConfirm {
 	/**
 	 *
 	 */
-	protected final function setRemoveData() {
+	private final function setRemoveData() {
 		$this->setUninstallRemovesData(true);
 
 		ilUtil::sendInfo($this->txt("msg_removed_data"), true);
@@ -189,7 +193,7 @@ abstract class AbstractRemovePluginDataConfirm {
 	 *
 	 * @return string
 	 */
-	protected final function txt($key) {
+	private final function txt($key) {
 		return self::plugin()->translate($key, "removeplugindataconfirm", [ self::plugin()->getPluginObject()->getPluginName() ]);
 	}
 
