@@ -15,6 +15,8 @@ trait RepositoryObjectPluginUninstallTrait {
 	/**
 	 * @return bool
 	 * @throws RemovePluginDataConfirmException
+	 *
+	 * @access namespace
 	 */
 	protected final function beforeUninstallCustom() {
 		return $this->pluginUninstall(false);
@@ -23,6 +25,8 @@ trait RepositoryObjectPluginUninstallTrait {
 
 	/**
 	 * @throws RemovePluginDataConfirmException
+	 *
+	 * @access namespace
 	 */
 	protected final function uninstallCustom() {
 		$remove_plugin_data_confirm_class = self::getRemovePluginDataConfirmClass();
@@ -38,7 +42,7 @@ trait RepositoryObjectPluginUninstallTrait {
 
 
 	/**
-	 *
+	 * @access namespace
 	 */
 	protected final function afterUninstall() {
 

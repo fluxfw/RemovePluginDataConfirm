@@ -33,6 +33,8 @@ trait AbstractPluginUninstallTrait {
 	 *
 	 * @return bool
 	 * @throws RemovePluginDataConfirmException
+	 *
+	 * @access namespace
 	 */
 	protected final function pluginUninstall($remove_data = true) {
 		$remove_plugin_data_confirm_class = self::getRemovePluginDataConfirmClass();
@@ -76,6 +78,8 @@ trait AbstractPluginUninstallTrait {
 	 * @return AbstractRemovePluginDataConfirm
 	 * @throws RemovePluginDataConfirmException Class not exists!
 	 * @throws RemovePluginDataConfirmException Class not extends AbstractRemovePluginDataConfirm!
+	 *
+	 * @access namespace
 	 */
 	protected static final function getRemovePluginDataConfirmClass() {
 		self::checkRemovePluginDataConfirmConst();
