@@ -4,6 +4,7 @@ namespace srag\RemovePluginDataConfirm;
 
 use ilUIPluginRouterGUI;
 use srag\DIC\DICTrait;
+use function boolval;
 
 /**
  * Trait AbstractPluginUninstallTrait
@@ -15,6 +16,12 @@ trait AbstractPluginUninstallTrait {
 	use DICTrait;
 
 	/* *
+	 * @var bool
+	 *
+	 * TODO: Implement Constants in Traits in PHP Core
+	 * /
+	const REMOVE_PLUGIN_DATA_CONFIRM = true;*/
+	/* *
 	 * @var string
 	 *
 	 * @abstract
@@ -22,6 +29,7 @@ trait AbstractPluginUninstallTrait {
 	 * TODO: Implement Constants in Traits in PHP Core
 	 * /
 	const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = "";*/
+
 	/**
 	 * @var AbstractRemovePluginDataConfirm[]
 	 */
@@ -43,14 +51,19 @@ trait AbstractPluginUninstallTrait {
 		$uninstall_removes_data = $remove_plugin_data_confirm_class->getUninstallRemovesData();
 
 		if ($uninstall_removes_data === NULL) {
-			$remove_plugin_data_confirm_class_name::saveParameterByClass();
+			if (self::getRemovePluginDataConfirmConst()) {
+				$remove_plugin_data_confirm_class_name::saveParameterByClass();
 
-			self::dic()->ctrl()->redirectByClass([
-				ilUIPluginRouterGUI::class,
-				$remove_plugin_data_confirm_class_name
-			], $remove_plugin_data_confirm_class_name::CMD_CONFIRM_REMOVE_DATA);
+				self::dic()->ctrl()->redirectByClass([
+					ilUIPluginRouterGUI::class,
+					$remove_plugin_data_confirm_class_name
+				], $remove_plugin_data_confirm_class_name::CMD_CONFIRM_REMOVE_DATA);
 
-			return false;
+				return false;
+			} else {
+				$uninstall_removes_data = true;
+				$remove_plugin_data_confirm_class->setUninstallRemovesData($uninstall_removes_data);
+			}
 		}
 
 		$uninstall_removes_data = boolval($uninstall_removes_data);
@@ -75,6 +88,18 @@ trait AbstractPluginUninstallTrait {
 
 
 	/**
+	 * @return bool
+	 */
+	private static final function getRemovePluginDataConfirmConst() {
+		if (defined("static::REMOVE_PLUGIN_DATA_CONFIRM")) {
+			return boolval(static::REMOVE_PLUGIN_DATA_CONFIRM);
+		} else {
+			return true;
+		}
+	}
+
+
+	/**
 	 * @return AbstractRemovePluginDataConfirm
 	 * @throws RemovePluginDataConfirmException Class not exists!
 	 * @throws RemovePluginDataConfirmException Class not extends AbstractRemovePluginDataConfirm!
@@ -82,7 +107,7 @@ trait AbstractPluginUninstallTrait {
 	 * @access namespace
 	 */
 	protected static final function getRemovePluginDataConfirmClass() {
-		self::checkRemovePluginDataConfirmConst();
+		self::checkRemovePluginDataConfirmClassNameConst();
 
 		$remove_plugin_data_confirm_class_name = static::REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME;
 
@@ -111,7 +136,7 @@ trait AbstractPluginUninstallTrait {
 	/**
 	 * @throws RemovePluginDataConfirmException Your class needs to implement the REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME constant!
 	 */
-	private static final function checkRemovePluginDataConfirmConst() {
+	private static final function checkRemovePluginDataConfirmClassNameConst() {
 		if (!defined("static::REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME") || empty(static::REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME)) {
 			throw new RemovePluginDataConfirmException("Your class needs to implement the REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME constant!");
 		}

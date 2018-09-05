@@ -92,7 +92,7 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 }
 
 ```
-`ilXPlugin` is the name of your plugin class.
+`ilXPlugin` is the name of your plugin class ([DICTrait](https://github.com/studer-raimann/DIC)).
 Replace the `X` in `XRemoveDataConfirm` with your plugin name.
 If you do not use `ActiveRecordConfig` replace in the `UninstallRemovesData` methods with your own database functions
 
@@ -150,6 +150,13 @@ removeplugindataconfirm_msg_removed_data#:#Die %1$s-Daten wurden auch entfernt!
 removeplugindataconfirm_remove_data#:#Entferne %1$s-Daten
 ```
 If you want you can modify these. The `%1$s` placeholder is the name of your plugin.
+
+If you want to use this library, but don't want to confirm to remove data, you can disable it with add the follow to your `ilXPlugin` class:
+```php
+//...
+const REMOVE_PLUGIN_DATA_CONFIRM = false;
+//...
+```
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests on https://git.studer-raimann.ch/ILIAS/Plugins/RemovePluginDataConfirm/tree/develop
