@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.2.0]
+- Allow to disable the confirm remove data
+
 ## [0.1.15]
 - Update comments
 
