@@ -30,7 +30,7 @@ const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = XRemoveDataConfirm::class;
 /**
  * @inheritdoc
  */
-protected function deleteData() {
+protected function deleteData()/*: void*/ {
 	// TODO: Delete your plugin data in this method
 }
 //...
@@ -70,15 +70,7 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 	/**
 	 * @inheritdoc
 	 */
-	public function removeUninstallRemovesData() {
-		XConfig::removeUninstallRemovesData();
-	}
-
-
-	/**
-	 * @inheritdoc
-	 */
-	public function getUninstallRemovesData() {
+	public function getUninstallRemovesData()/*: ?bool*/ {
 		return XConfig::getUninstallRemovesData();
 	}
 
@@ -86,9 +78,17 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 	/**
 	 * @inheritdoc
 	 */
-	public function setUninstallRemovesData($uninstall_removes_data) {
+	public function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/*: void*/ {
 		XConfig::setUninstallRemovesData($uninstall_removes_data);
 	}
+
+
+	/**
+     * @inheritdoc
+     */
+    public function removeUninstallRemovesData()/*: void*/ {
+        XConfig::removeUninstallRemovesData();
+    }
 }
 
 ```
@@ -104,7 +104,7 @@ use XRemoveDataConfirm;
 /**
  * @return bool|null
  */
-public static function getUninstallRemovesData() {
+public static function getUninstallRemovesData()/*: ?bool*/ {
 	return self::getXValue(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA, XRemoveDataConfirm::DEFAULT_UNINSTALL_REMOVES_DATA);
 }
 
@@ -112,7 +112,7 @@ public static function getUninstallRemovesData() {
 /**
  * @param bool $uninstall_removes_data
  */
-public static function setUninstallRemovesData($uninstall_removes_data) {
+public static function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/*: void*/ {
 	self::setBooleanValue(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA, $uninstall_removes_data);
 }
 
@@ -120,7 +120,7 @@ public static function setUninstallRemovesData($uninstall_removes_data) {
 /**
  *
  */
-public static function removeUninstallRemovesData() {
+public static function removeUninstallRemovesData()/*: void*/ {
 	self::removeName(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA);
 }
 //...
