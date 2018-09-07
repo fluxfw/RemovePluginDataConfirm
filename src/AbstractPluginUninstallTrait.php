@@ -10,6 +10,8 @@ use function boolval;
  * Trait AbstractPluginUninstallTrait
  *
  * @package srag\RemovePluginDataConfirm
+ *
+ * @author  studer + raimann ag <support-custom1@studer-raimann.ch>
  */
 trait AbstractPluginUninstallTrait {
 
