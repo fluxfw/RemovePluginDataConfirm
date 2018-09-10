@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.2.4]
+- Added dependencies to readme
+
 ## [0.2.3]
 - Fix
 
@@ -59,4 +62,3 @@
 
 ## [0.1.0]
 - First version
-
