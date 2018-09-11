@@ -160,6 +160,7 @@ const REMOVE_PLUGIN_DATA_CONFIRM = false;
 //...
 ```
 ### Dependencies
+* [composer](https://getcomposer.org)
 * [srag/dic](https://packagist.org/packages/srag/dic)
 
 Please use it for further development!
