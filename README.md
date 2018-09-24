@@ -98,7 +98,7 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 Replace the `X` in `XRemoveDataConfirm` with your plugin name.
 If you do not use `ActiveRecordConfig` replace in the `UninstallRemovesData` methods with your own database functions
 
-If you use `ActiveRecordConfig` add the follow to these class:
+If you use `ActiveRecordConfig` add the follow to your `XConfig` class:
 ```php
 ///...
 use XRemoveDataConfirm;
