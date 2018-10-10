@@ -160,7 +160,7 @@ const REMOVE_PLUGIN_DATA_CONFIRM = false;
 //...
 ```
 ### Dependencies
-* PHP 5.6
+* PHP >=5.6
 * [composer](https://getcomposer.org)
 * [srag/dic](https://packagist.org/packages/srag/dic)
 
