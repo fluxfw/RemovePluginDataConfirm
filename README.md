@@ -36,6 +36,7 @@ protected function deleteData()/*: void*/ {
 //...
 ```
 `XRemoveDataConfirm` is the name of your remove data confirm class.
+You don't need to use `DICTrait`, it is already in use!
 
 If your plugin is a RepositoryObject use `RepositoryObjectPluginUninstallTrait` instead:
 ```php
@@ -97,6 +98,7 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 `ilXPlugin` is the name of your plugin class ([DICTrait](https://github.com/studer-raimann/DIC)).
 Replace the `X` in `XRemoveDataConfirm` with your plugin name.
 If you do not use `ActiveRecordConfig` replace in the `UninstallRemovesData` methods with your own database functions
+You don't need to use `DICTrait`, it is already in use!
 
 If you use `ActiveRecordConfig` add the follow to your `Config` class:
 ```php
