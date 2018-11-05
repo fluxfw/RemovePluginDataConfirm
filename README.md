@@ -54,7 +54,7 @@ Then create a class called `XRemoveDataConfirm` in `classes/uninstall/class.XRem
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-use srag\Plugins\X\Config\XConfig;
+use srag\Plugins\X\Config\Config;
 use srag\RemovePluginDataConfirm\AbstractRemovePluginDataConfirm;
 
 /**
@@ -73,7 +73,7 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 	 * @inheritdoc
 	 */
 	public function getUninstallRemovesData()/*: ?bool*/ {
-		return XConfig::getUninstallRemovesData();
+		return Config::getUninstallRemovesData();
 	}
 
 
@@ -81,7 +81,7 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 	 * @inheritdoc
 	 */
 	public function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/*: void*/ {
-		XConfig::setUninstallRemovesData($uninstall_removes_data);
+		Config::setUninstallRemovesData($uninstall_removes_data);
 	}
 
 
@@ -89,7 +89,7 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
      * @inheritdoc
      */
     public function removeUninstallRemovesData()/*: void*/ {
-        XConfig::removeUninstallRemovesData();
+        Config::removeUninstallRemovesData();
     }
 }
 
@@ -98,7 +98,7 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 Replace the `X` in `XRemoveDataConfirm` with your plugin name.
 If you do not use `ActiveRecordConfig` replace in the `UninstallRemovesData` methods with your own database functions
 
-If you use `ActiveRecordConfig` add the follow to your `XConfig` class:
+If you use `ActiveRecordConfig` add the follow to your `Config` class:
 ```php
 ///...
 use XRemoveDataConfirm;
