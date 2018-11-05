@@ -31,7 +31,7 @@ const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = XRemoveDataConfirm::class;
  * @inheritdoc
  */
 protected function deleteData()/*: void*/ {
-	// TODO: Delete your plugin data in this method
+    // TODO: Delete your plugin data in this method
 }
 //...
 ```
@@ -67,26 +67,26 @@ use srag\RemovePluginDataConfirm\AbstractRemovePluginDataConfirm;
  */
 class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 
-	const PLUGIN_CLASS_NAME = ilXPlugin::class;
+    const PLUGIN_CLASS_NAME = ilXPlugin::class;
 
 
-	/**
-	 * @inheritdoc
-	 */
-	public function getUninstallRemovesData()/*: ?bool*/ {
-		return Config::getUninstallRemovesData();
-	}
+    /**
+     * @inheritdoc
+     */
+    public function getUninstallRemovesData()/*: ?bool*/ {
+        return Config::getUninstallRemovesData();
+    }
 
 
-	/**
-	 * @inheritdoc
-	 */
-	public function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/*: void*/ {
-		Config::setUninstallRemovesData($uninstall_removes_data);
-	}
+    /**
+     * @inheritdoc
+     */
+    public function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/*: void*/ {
+        Config::setUninstallRemovesData($uninstall_removes_data);
+    }
 
 
-	/**
+    /**
      * @inheritdoc
      */
     public function removeUninstallRemovesData()/*: void*/ {
@@ -109,7 +109,7 @@ use XRemoveDataConfirm;
  * @return bool|null
  */
 public static function getUninstallRemovesData()/*: ?bool*/ {
-	return self::getXValue(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA, XRemoveDataConfirm::DEFAULT_UNINSTALL_REMOVES_DATA);
+    return self::getXValue(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA, XRemoveDataConfirm::DEFAULT_UNINSTALL_REMOVES_DATA);
 }
 
 
@@ -117,7 +117,7 @@ public static function getUninstallRemovesData()/*: ?bool*/ {
  * @param bool $uninstall_removes_data
  */
 public static function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/*: void*/ {
-	self::setBooleanValue(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA, $uninstall_removes_data);
+    self::setBooleanValue(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA, $uninstall_removes_data);
 }
 
 
@@ -125,7 +125,7 @@ public static function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/
  *
  */
 public static function removeUninstallRemovesData()/*: void*/ {
-	self::removeName(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA);
+    self::removeName(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA);
 }
 //...
 ```
