@@ -155,6 +155,8 @@ removeplugindataconfirm_remove_data#:#Entferne %1$s-Daten
 ```
 If you want you can modify these. The `%1$s` placeholder is the name of your plugin.
 
+Notice to also adjust `dbupdate.php` so it can be reinstalled if the data should already exists!
+
 If you want to use this library, but don't want to confirm to remove data, you can disable it with add the follow to your `ilXPlugin` class:
 ```php
 //...
