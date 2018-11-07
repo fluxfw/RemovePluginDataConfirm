@@ -55,7 +55,6 @@ Then create a class called `XRemoveDataConfirm` in `classes/uninstall/class.XRem
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-use srag\Plugins\X\Config\Config;
 use srag\RemovePluginDataConfirm\AbstractRemovePluginDataConfirm;
 
 /**
@@ -68,67 +67,12 @@ use srag\RemovePluginDataConfirm\AbstractRemovePluginDataConfirm;
 class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 
     const PLUGIN_CLASS_NAME = ilXPlugin::class;
-
-
-    /**
-     * @inheritdoc
-     */
-    public function getUninstallRemovesData()/*: ?bool*/ {
-        return Config::getUninstallRemovesData();
-    }
-
-
-    /**
-     * @inheritdoc
-     */
-    public function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/*: void*/ {
-        Config::setUninstallRemovesData($uninstall_removes_data);
-    }
-
-
-    /**
-     * @inheritdoc
-     */
-    public function removeUninstallRemovesData()/*: void*/ {
-        Config::removeUninstallRemovesData();
-    }
 }
 
 ```
 `ilXPlugin` is the name of your plugin class ([DICTrait](https://github.com/studer-raimann/DIC)).
 Replace the `X` in `XRemoveDataConfirm` with your plugin name.
-If you do not use `ActiveRecordConfig` replace in the `UninstallRemovesData` methods with your own database functions
 You don't need to use `DICTrait`, it is already in use!
-
-If you use `ActiveRecordConfig` add the follow to your `Config` class:
-```php
-///...
-use XRemoveDataConfirm;
-///...
-/**
- * @return bool|null
- */
-public static function getUninstallRemovesData()/*: ?bool*/ {
-    return self::getXValue(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA, XRemoveDataConfirm::DEFAULT_UNINSTALL_REMOVES_DATA);
-}
-
-
-/**
- * @param bool $uninstall_removes_data
- */
-public static function setUninstallRemovesData(/*bool*/$uninstall_removes_data)/*: void*/ {
-    self::setBooleanValue(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA, $uninstall_removes_data);
-}
-
-
-/**
- *
- */
-public static function removeUninstallRemovesData()/*: void*/ {
-    self::removeName(XRemoveDataConfirm::KEY_UNINSTALL_REMOVES_DATA);
-}
-//...
-```
 
 Then you need to declare some language variables like:
 English:
