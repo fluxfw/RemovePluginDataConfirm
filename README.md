@@ -84,8 +84,8 @@ removeplugindataconfirm_confirm_remove_data#:#Do you want to remove the %1$s dat
 removeplugindataconfirm_deactivate#:#Just deactivate %1$s plugin
 removeplugindataconfirm_data#:#%1$s data
 removeplugindataconfirm_keep_data#:#Keep %1$s data
-removeplugindataconfirm_msg_kept_data#:#The %1$s data was kept!
-removeplugindataconfirm_msg_removed_data#:#The %1$s data was also removed!
+removeplugindataconfirm_msg_kept_data#:#The %1$s data was kept
+removeplugindataconfirm_msg_removed_data#:#The %1$s data was also removed
 removeplugindataconfirm_remove_data#:#Remove %1$s data
 ```
 German:
@@ -95,8 +95,8 @@ removeplugindataconfirm_confirm_remove_data#:#Möchten Sie die %1$s-Daten auch e
 removeplugindataconfirm_deactivate#:#%1$s-Plugin nur deaktivieren
 removeplugindataconfirm_data#:#%1$s-Daten
 removeplugindataconfirm_keep_data#:#%1$s-Daten behalten
-removeplugindataconfirm_msg_kept_data#:#Die %1$s-Daten wurden behalten!
-removeplugindataconfirm_msg_removed_data#:#Die %1$s-Daten wurden auch entfernt!
+removeplugindataconfirm_msg_kept_data#:#Die %1$s-Daten wurden behalten
+removeplugindataconfirm_msg_removed_data#:#Die %1$s-Daten wurden auch entfernt
 removeplugindataconfirm_remove_data#:#Entferne %1$s-Daten
 ```
 If you want you can modify these. The `%1$s` placeholder is the name of your plugin.
