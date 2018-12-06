@@ -2,6 +2,8 @@
 
 namespace srag\RemovePluginDataConfirm;
 
+use srag\RemovePluginDataConfirm\Exception\RemovePluginDataConfirmException;
+
 /**
  * Trait PluginUninstallTrait
  *
