@@ -117,7 +117,7 @@ const REMOVE_PLUGIN_DATA_CONFIRM = false;
 Please use it for further development!
 
 ### Adjustment suggestions
-* Adjustment suggestions by pull requests on https://git.studer-raimann.ch/ILIAS/Plugins/RemovePluginDataConfirm/tree/develop
+* Adjustment suggestions by pull requests
 * Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/LRPDC
 * Bug reports under https://jira.studer-raimann.ch/projects/LRPDC
 * For external users you can report it at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_LRPDC
