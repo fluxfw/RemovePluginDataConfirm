@@ -76,30 +76,21 @@ class XRemoveDataConfirm extends AbstractRemovePluginDataConfirm {
 Replace the `X` in `XRemoveDataConfirm` with your plugin name.
 You don't need to use `DICTrait`, it is already in use!
 
-Then you need to declare some language variables like:
-English:
+Expand you plugin class for installing languages of the library to your plugin
+```php
+...
+
+	/**
+	 * @inheritdoc
+	 */
+	public function updateLanguages($a_lang_keys = null) {
+		parent::updateLanguages($a_lang_keys);
+
+		LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__ . "/../vendor/srag/removeplugindataconfirm/lang")
+			->updateLanguages($a_lang_keys);
+	}
+...
 ```
-removeplugindataconfirm_cancel#:#Cancel
-removeplugindataconfirm_confirm_remove_data#:#Do you want to remove the %1$s data as well? At most, you just want to disable the %1$s plugin?
-removeplugindataconfirm_deactivate#:#Just deactivate %1$s plugin
-removeplugindataconfirm_data#:#%1$s data
-removeplugindataconfirm_keep_data#:#Keep %1$s data
-removeplugindataconfirm_msg_kept_data#:#The %1$s data was kept
-removeplugindataconfirm_msg_removed_data#:#The %1$s data was also removed
-removeplugindataconfirm_remove_data#:#Remove %1$s data
-```
-German:
-```
-removeplugindataconfirm_cancel#:#Abbrechen
-removeplugindataconfirm_confirm_remove_data#:#Möchten Sie die %1$s-Daten auch entfernen? Allenfalls möchten Sie das %1$s-Plugin nur deaktivieren?
-removeplugindataconfirm_deactivate#:#%1$s-Plugin nur deaktivieren
-removeplugindataconfirm_data#:#%1$s-Daten
-removeplugindataconfirm_keep_data#:#%1$s-Daten behalten
-removeplugindataconfirm_msg_kept_data#:#Die %1$s-Daten wurden behalten
-removeplugindataconfirm_msg_removed_data#:#Die %1$s-Daten wurden auch entfernt
-removeplugindataconfirm_remove_data#:#Entferne %1$s-Daten
-```
-If you want you can modify these. The `%1$s` placeholder is the name of your plugin.
 
 Notice to also adjust `dbupdate.php` so it can be reinstalled if the data should already exists!
 
