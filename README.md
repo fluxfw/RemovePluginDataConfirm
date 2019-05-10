@@ -100,12 +100,9 @@ If you want to use this library, but don't want to confirm to remove data, you c
 const REMOVE_PLUGIN_DATA_CONFIRM = false;
 //...
 ```
-### Dependencies
+### Requirements
+* ILIAS 5.3 or ILIAS 5.4
 * PHP >=5.6
-* [composer](https://getcomposer.org)
-* [srag/dic](https://packagist.org/packages/srag/dic)
-
-Please use it for further development!
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests
