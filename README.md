@@ -79,7 +79,6 @@ You don't need to use `DICTrait`, it is already in use!
 Expand you plugin class for installing languages of the library to your plugin
 ```php
 ...
-
 	/**
 	 * @inheritdoc
 	 */
