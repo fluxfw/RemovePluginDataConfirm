@@ -104,7 +104,8 @@ const REMOVE_PLUGIN_DATA_CONFIRM = false;
 * PHP >=5.6
 
 ### Adjustment suggestions
-* Adjustment suggestions by pull requests
-* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/LRPDC
-* Bug reports under https://jira.studer-raimann.ch/projects/LRPDC
-* For external users you can report it at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_LRPDC
+* External users can report suggestions and bugs at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_LRPDC
+* Adjustment suggestions by pull requests via github
+* Customer of studer + raimann ag: 
+	* Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/LRPDC
+	* Bug reports under https://jira.studer-raimann.ch/projects/LRPDC
