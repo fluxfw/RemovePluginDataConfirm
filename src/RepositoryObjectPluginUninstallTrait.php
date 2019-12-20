@@ -2,8 +2,6 @@
 
 namespace srag\RemovePluginDataConfirm;
 
-use srag\RemovePluginDataConfirm\Exception\RemovePluginDataConfirmException;
-
 /**
  * Trait RepositoryObjectPluginUninstallTrait
  *
@@ -14,12 +12,11 @@ use srag\RemovePluginDataConfirm\Exception\RemovePluginDataConfirmException;
 trait RepositoryObjectPluginUninstallTrait
 {
 
-    use AbstractPluginUninstallTrait;
+    use BasePluginUninstallTrait;
 
 
     /**
      * @return bool
-     * @throws RemovePluginDataConfirmException
      *
      * @internal
      */
@@ -30,15 +27,11 @@ trait RepositoryObjectPluginUninstallTrait
 
 
     /**
-     * @throws RemovePluginDataConfirmException
-     *
      * @internal
      */
     protected final function uninstallCustom()/*: void*/
     {
-        $remove_plugin_data_confirm_class = self::getRemovePluginDataConfirmClass();
-
-        $uninstall_removes_data = $remove_plugin_data_confirm_class->getUninstallRemovesData();
+        $uninstall_removes_data = RemovePluginDataConfirmCtrl::getUninstallRemovesData();
 
         $uninstall_removes_data = boolval($uninstall_removes_data);
 
@@ -46,7 +39,7 @@ trait RepositoryObjectPluginUninstallTrait
             $this->deleteData();
         }
 
-        $remove_plugin_data_confirm_class->removeUninstallRemovesData();
+        RemovePluginDataConfirmCtrl::removeUninstallRemovesData();
     }
 
 
