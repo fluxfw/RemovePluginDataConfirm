@@ -2,8 +2,6 @@
 
 namespace srag\RemovePluginDataConfirm;
 
-use srag\RemovePluginDataConfirm\Exception\RemovePluginDataConfirmException;
-
 /**
  * Trait PluginUninstallTrait
  *
@@ -14,12 +12,11 @@ use srag\RemovePluginDataConfirm\Exception\RemovePluginDataConfirmException;
 trait PluginUninstallTrait
 {
 
-    use AbstractPluginUninstallTrait;
+    use BasePluginUninstallTrait;
 
 
     /**
      * @return bool
-     * @throws RemovePluginDataConfirmException
      *
      * @internal
      */

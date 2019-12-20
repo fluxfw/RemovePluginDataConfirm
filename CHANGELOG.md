@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.6.0]
+- Automatic ctrl class
+
 ## [0.5.0]
 - Some improvments
 
