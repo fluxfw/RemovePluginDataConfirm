@@ -2,97 +2,42 @@
 
 namespace srag\RemovePluginDataConfirm;
 
+require_once __DIR__ . "./../../../autoload.php";
+
 use ilAdministrationGUI;
 use ilConfirmationGUI;
 use ilObjComponentSettingsGUI;
 use ilSession;
 use ilUtil;
+use srag\DIC\DICStatic;
 use srag\DIC\DICTrait;
 
 /**
- * Class AbstractRemovePluginDataConfirm
+ * Class RemovePluginDataConfirmCtrl
  *
- * @package srag\RemovePluginDataConfirm
+ * @package           srag\RemovePluginDataConfirm
  *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
+ * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
+ *
+ * @ilCtrl_isCalledBy srag\RemovePluginDataConfirm\RemovePluginDataConfirmCtrl: ilUIPluginRouterGUI
  */
-abstract class AbstractRemovePluginDataConfirm
+class RemovePluginDataConfirmCtrl
 {
 
     use DICTrait;
-    /**
-     * @var string
-     *
-     * @internal
-     */
     const CMD_CANCEL = "cancel";
-    /**
-     * @var string
-     *
-     * @internal
-     */
     const CMD_CONFIRM_REMOVE_DATA = "confirmRemoveData";
-    /**
-     * @var string
-     *
-     * @internal
-     */
     const CMD_DEACTIVATE = "deactivate";
-    /**
-     * @var string
-     *
-     * @internal
-     */
     const CMD_SET_KEEP_DATA = "setKeepData";
-    /**
-     * @var string
-     *
-     * @internal
-     */
     const CMD_SET_REMOVE_DATA = "setRemoveData";
-    /**
-     * @var string
-     *
-     * @internal
-     */
     const KEY_UNINSTALL_REMOVES_DATA = "uninstall_removes_data";
-    /**
-     * @var string
-     *
-     * @internal
-     */
     const LANG_MODULE = "removeplugindataconfirm";
-    /**
-     * @var AbstractRemovePluginDataConfirm|null
-     *
-     * @internal
-     */
-    private static $instance = null;
-
-
-    /**
-     * @return AbstractRemovePluginDataConfirm
-     *
-     * @internal
-     */
-    public static final function getInstance()/*: AbstractRemovePluginDataConfirm*/
-    {
-        if (self::$instance === null) {
-            self::$instance = new static();
-        }
-
-        return self::$instance;
-    }
 
 
     /**
      * @param bool $plugin
-     *
-     * @internal
      */
-    public static final function saveParameterByClass(/*bool*/
-        $plugin = true
-    )/*: void*/
+    public static function saveParameterByClass(/*bool*/ $plugin = true)/*: void*/
     {
         $ref_id = filter_input(INPUT_GET, "ref_id");
         self::dic()->ctrl()->setParameterByClass(ilObjComponentSettingsGUI::class, "ref_id", $ref_id);
@@ -123,19 +68,53 @@ abstract class AbstractRemovePluginDataConfirm
 
 
     /**
-     * @internal
+     * @return bool|null
      */
-    public final function __construct()
+    public static function getUninstallRemovesData()/*: ?bool*/
+    {
+        return json_decode(ilSession::get(self::KEY_UNINSTALL_REMOVES_DATA));
+    }
+
+
+    /**
+     * @param bool $uninstall_removes_data
+     */
+    public static function setUninstallRemovesData(/*bool*/ $uninstall_removes_data)/*: void*/
+    {
+        ilSession::set(self::KEY_UNINSTALL_REMOVES_DATA, json_encode($uninstall_removes_data));
+    }
+
+
+    /**
+     *
+     */
+    public static function removeUninstallRemovesData()/*: void*/
+    {
+        ilSession::clear(self::KEY_UNINSTALL_REMOVES_DATA);
+    }
+
+
+    /**
+     * RemovePluginDataConfirmCtrl constructor
+     */
+    public function __construct()
     {
 
     }
 
 
     /**
-     * @internal
+     *
      */
-    public final function executeCommand()/*: void*/
+    public function executeCommand()/*: void*/
     {
+        $ref_id = filter_input(INPUT_GET, "ref_id");
+        if (!self::dic()->access()->checkAccess("write", "", $ref_id)) {
+            die();
+        }
+
+        $this->setTabs();
+
         $next_class = self::dic()->ctrl()->getNextClass($this);
 
         switch ($next_class) {
@@ -160,36 +139,18 @@ abstract class AbstractRemovePluginDataConfirm
 
 
     /**
-     * @param string $cmd
      *
-     * @internal
      */
-    private final function redirectToPlugins(/*string*/
-        $cmd
-    )/*: void*/
+    protected function setTabs()/*:void*/
     {
-        self::saveParameterByClass($cmd !== "listPlugins");
 
-        self::dic()->ctrl()->redirectByClass([
-            ilAdministrationGUI::class,
-            ilObjComponentSettingsGUI::class
-        ], $cmd);
     }
 
 
     /**
-     * @internal
+     *
      */
-    private final function cancel()/*: void*/
-    {
-        $this->redirectToPlugins("listPlugins");
-    }
-
-
-    /**
-     * @internal
-     */
-    private final function confirmRemoveData()/*: void*/
+    protected function confirmRemoveData()/*: void*/
     {
         self::saveParameterByClass();
 
@@ -211,33 +172,25 @@ abstract class AbstractRemovePluginDataConfirm
 
 
     /**
-     * @internal
+     * @param string $cmd
      */
-    private final function deactivate()/*: void*/
+    protected function redirectToPlugins(/*string*/ $cmd)/*: void*/
     {
-        $this->redirectToPlugins("deactivatePlugin");
+        self::saveParameterByClass($cmd !== "listPlugins");
+
+        self::dic()->ctrl()->redirectByClass([
+            ilAdministrationGUI::class,
+            ilObjComponentSettingsGUI::class
+        ], $cmd);
     }
 
 
     /**
-     * @internal
+     *
      */
-    private final function setKeepData()/*: void*/
+    protected function setRemoveData()/*: void*/
     {
-        $this->setUninstallRemovesData(false);
-
-        ilUtil::sendInfo($this->txt("msg_kept_data"), true);
-
-        $this->redirectToPlugins("uninstallPlugin");
-    }
-
-
-    /**
-     * @internal
-     */
-    private final function setRemoveData()/*: void*/
-    {
-        $this->setUninstallRemovesData(true);
+        self::setUninstallRemovesData(true);
 
         ilUtil::sendInfo($this->txt("msg_removed_data"), true);
 
@@ -246,49 +199,45 @@ abstract class AbstractRemovePluginDataConfirm
 
 
     /**
+     *
+     */
+    protected function setKeepData()/*: void*/
+    {
+        self::setUninstallRemovesData(false);
+
+        ilUtil::sendInfo($this->txt("msg_kept_data"), true);
+
+        $this->redirectToPlugins("uninstallPlugin");
+    }
+
+
+    /**
+     *
+     */
+    protected function deactivate()/*: void*/
+    {
+        $this->redirectToPlugins("deactivatePlugin");
+    }
+
+
+    /**
+     *
+     */
+    protected function cancel()/*: void*/
+    {
+        $this->redirectToPlugins("listPlugins");
+    }
+
+
+    /**
      * @param string $key
      *
      * @return string
-     *
-     * @internal
      */
-    private final function txt(/*string*/
-        $key
-    )/*: string*/
+    protected function txt(/*string*/ $key)/*: string*/
     {
-        return self::plugin()->translate($key, self::LANG_MODULE, [self::plugin()->getPluginObject()->getPluginName()]);
-    }
+        $pname = filter_input(INPUT_GET, "pname");
 
-
-    /**
-     * @return bool|null
-     *
-     * @internal
-     */
-    public final function getUninstallRemovesData()/*: ?bool*/
-    {
-        return json_decode(ilSession::get(self::KEY_UNINSTALL_REMOVES_DATA));
-    }
-
-
-    /**
-     * @param bool $uninstall_removes_data
-     *
-     * @internal
-     */
-    public final function setUninstallRemovesData(/*bool*/
-        $uninstall_removes_data
-    )/*: void*/
-    {
-        ilSession::set(self::KEY_UNINSTALL_REMOVES_DATA, json_encode($uninstall_removes_data));
-    }
-
-
-    /**
-     * @internal
-     */
-    public final function removeUninstallRemovesData()/*: void*/
-    {
-        ilSession::clear(self::KEY_UNINSTALL_REMOVES_DATA);
+        return DICStatic::plugin("il" . $pname . "Plugin")->translate($key, self::LANG_MODULE, [$pname]);
     }
 }
