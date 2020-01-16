@@ -66,7 +66,7 @@ Notice to also adjust `dbupdate.php` so it can be reinstalled if the data should
 
 ### Requirements
 * ILIAS 5.3 or ILIAS 5.4
-* PHP >=5.6
+* PHP >=7.0
 
 ### Adjustment suggestions
 * External users can report suggestions and bugs at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_LRPDC
