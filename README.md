@@ -56,7 +56,7 @@ Expand you plugin class for installing languages of the library to your plugin
     public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/ {
 		parent::updateLanguages($a_lang_keys);
 
-		$this()->installRemovePluginDataConfirmLanguages();
+		$this->installRemovePluginDataConfirmLanguages();
 	}
 ...
 ```
