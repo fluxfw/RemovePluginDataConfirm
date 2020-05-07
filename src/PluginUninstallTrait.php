@@ -14,7 +14,6 @@ trait PluginUninstallTrait
 
     use BasePluginUninstallTrait;
 
-
     /**
      * @return bool
      *
