@@ -32,4 +32,23 @@ trait PluginUninstallTrait
     {
 
     }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function updateDatabase()
+    {
+        if ($this->shouldUseOneUpdateStepOnly()) {
+            $this->writeDBVersion(0);
+        }
+
+        return parent::updateDatabase();
+    }
+
+
+    /**
+     * @return bool
+     */
+    protected abstract function shouldUseOneUpdateStepOnly() : bool;
 }
