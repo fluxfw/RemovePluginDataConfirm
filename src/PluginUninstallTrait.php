@@ -15,13 +15,15 @@ trait PluginUninstallTrait
     use BasePluginUninstallTrait;
 
     /**
-     * @return bool
-     *
-     * @internal
+     * @inheritDoc
      */
-    protected final function beforeUninstall() : bool
+    public function updateDatabase()
     {
-        return $this->pluginUninstall();
+        if ($this->shouldUseOneUpdateStepOnly()) {
+            $this->writeDBVersion(0);
+        }
+
+        return parent::updateDatabase();
     }
 
 
@@ -35,15 +37,13 @@ trait PluginUninstallTrait
 
 
     /**
-     * @inheritDoc
+     * @return bool
+     *
+     * @internal
      */
-    public function updateDatabase()
+    protected final function beforeUninstall() : bool
     {
-        if ($this->shouldUseOneUpdateStepOnly()) {
-            $this->writeDBVersion(0);
-        }
-
-        return parent::updateDatabase();
+        return $this->pluginUninstall();
     }
 
 

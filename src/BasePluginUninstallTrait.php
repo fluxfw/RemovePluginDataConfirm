@@ -21,6 +21,22 @@ trait BasePluginUninstallTrait
     use DICTrait;
 
     /**
+     * Delete your plugin data in this method
+     */
+    protected abstract function deleteData()/*: void*/ ;
+
+
+    /**
+     *
+     */
+    protected function installRemovePluginDataConfirmLanguages()/*:void*/
+    {
+        LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__
+            . "/../lang")->updateLanguages();
+    }
+
+
+    /**
      * @param bool $remove_data
      *
      * @return bool
@@ -54,20 +70,4 @@ trait BasePluginUninstallTrait
 
         return true;
     }
-
-
-    /**
-     *
-     */
-    protected function installRemovePluginDataConfirmLanguages()/*:void*/
-    {
-        LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__
-            . "/../lang")->updateLanguages();
-    }
-
-
-    /**
-     * Delete your plugin data in this method
-     */
-    protected abstract function deleteData()/*: void*/ ;
 }
