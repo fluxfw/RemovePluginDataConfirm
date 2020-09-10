@@ -21,6 +21,19 @@ trait BasePluginUninstallTrait
     use DICTrait;
 
     /**
+     * @inheritDoc
+     */
+    public function updateDatabase()/* : void*/
+    {
+        if ($this->shouldUseOneUpdateStepOnly()) {
+            $this->writeDBVersion(0);
+        }
+
+        return parent::updateDatabase();
+    }
+
+
+    /**
      * Delete your plugin data in this method
      */
     protected abstract function deleteData()/*: void*/ ;
@@ -70,4 +83,10 @@ trait BasePluginUninstallTrait
 
         return true;
     }
+
+
+    /**
+     * @return bool
+     */
+    protected abstract function shouldUseOneUpdateStepOnly() : bool;
 }
