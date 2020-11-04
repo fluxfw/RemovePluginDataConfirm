@@ -4,7 +4,7 @@ namespace srag\RemovePluginDataConfirm;
 
 use ilUIPluginRouterGUI;
 use srag\DIC\DICTrait;
-use srag\DIC\Util\LibraryLanguageInstaller;
+use srag\LibraryLanguageInstaller\LibraryLanguageInstaller;
 
 /**
  * Trait BasePluginUninstallTrait
