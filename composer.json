@@ -41,7 +41,10 @@
   "autoload": {
     "psr-4": {
       "srag\\RemovePluginDataConfirm\\": "src/"
-    }
+    },
+    "classmap": [
+      "src/class.RemovePluginDataConfirmCtrl.php"
+    ]
   },
   "config": {
     "classmap-authoritative": true,
