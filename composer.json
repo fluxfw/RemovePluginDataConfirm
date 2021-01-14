@@ -11,11 +11,11 @@
   },
   "type": "library",
   "keywords": [
-    "ILIAS",
-    "Plugin",
-    "Uninstall",
-    "Data",
-    "Confirm"
+    "confirm",
+    "data",
+    "ilias",
+    "plugin",
+    "uninstall"
   ],
   "homepage": "https://github.com/studer-raimann/RemovePluginDataConfirm",
   "license": "GPL-3.0-only",
