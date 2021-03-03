@@ -18,7 +18,7 @@
     "plugin",
     "uninstall"
   ],
-  "homepage": "https://github.com/studer-raimann/RemovePluginDataConfirm",
+  "homepage": "https://github.com/fluxfw/RemovePluginDataConfirm",
   "license": "GPL-3.0-only",
   "authors": [
     {
