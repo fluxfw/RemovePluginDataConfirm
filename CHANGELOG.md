@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.7.6]
+- Ignore not supported languages
+
 ## [0.7.5]
 - Ignore not supported languages
 
