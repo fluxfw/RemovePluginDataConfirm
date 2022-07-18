@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.9.0]
+- Clean up
+
 ## [0.8.1]
 - Not use GeneratePluginReadme
 
